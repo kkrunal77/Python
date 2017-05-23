@@ -259,6 +259,8 @@ else:
     print(True)
 
 ##############join##################
+#pyhon Python List Comprehensions: Explained Visually
+# http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
 from itertools import combinations_with_replacement as kk
 a, b =  input().split()
 print(*[''.join(p) for p in kk(sorted(a),int(b))],sep="\n")
