@@ -261,6 +261,28 @@ else:
 ##############join##################
 #pyhon Python List Comprehensions: Explained Visually
 # http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/
+Sample Input
+
+ 1 2
+ 3 4
+Sample Output
+
+ (1, 3) (1, 4) (2, 3) (2, 4)
+
+#######################################
+
 from itertools import combinations_with_replacement as kk
 a, b =  input().split()
 print(*[''.join(p) for p in kk(sorted(a),int(b))],sep="\n")
+#######################################
+Sample Input
+
+1222311
+Sample Output
+
+(1, 1) (3, 2) (1, 3) (2, 1)
+#################CODE###################
+from itertools import groupby
+
+print(*[(len(list(g)),int(k)) for k, g in groupby(input())], sep=" ")
+########################################
