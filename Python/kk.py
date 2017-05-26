@@ -285,4 +285,140 @@ Sample Output
 from itertools import groupby
 
 print(*[(len(list(g)),int(k)) for k, g in groupby(input())], sep=" ")
+
 ########################################
+
+Task
+
+You are given a string . 
+Your task is to print all possible permutations of size  of the string in lexicographic sorted order.
+
+Input Format
+
+A single line containing the space separated string  and the integer value .
+
+Constraints
+
+ 
+The string contains only UPPERCASE characters.
+
+Output Format
+
+Print the permutations of the string  on separate lines.
+
+Sample Input
+
+HACK 2
+Sample Output
+
+AC
+AH
+AK
+CA
+CH
+CK
+HA
+HC
+HK
+KA
+KC
+KH
+#################CODE###################
+from itertools import permutations as kk
+string, k = input().split()
+print(*[''.join(i) for i in kk(sorted(string), int(k))], sep= "\n") 
+
+###########################################
+
+Task
+
+You are given a string . 
+Your task is to print all possible combinations, up to size , of the string in lexicographic sorted order.
+
+Input Format
+
+A single line containing the string  and integer value  separated by a space.
+
+Constraints
+
+ 
+The string contains only UPPERCASE characters.
+
+Output Format
+
+Print the different combinations of string  on separate lines.
+
+Sample Input
+
+HACK 2
+Sample Output
+
+A
+C
+H
+K
+AC
+AH
+AK
+CH
+CK
+HK
+Submissions: 7188
+Max Score: 10
+Difficulty: Easy
+Rate This Challenge:
+    
+More
+Current Buffer (saved locally, editable)     
+
+################CODE#######################
+from itertools import combinations as kk
+string, n = input().split()
+for i in range(1, int(n)+1):
+    for j in kk(sorted(string), i):
+        print(''.join(j))
+##########################################@
+Input Format
+
+A single line containing the string  and integer value  separated by a space.
+
+Constraints
+
+ 
+The string contains only UPPERCASE characters.
+
+Output Format
+
+Print the combinations with their replacements of string  on separate lines.
+
+Sample Input
+
+HACK 2
+Sample Output
+
+AA
+AC
+AH
+AK
+CC
+CH
+CK
+HH
+HK
+KK
+Submissions: 6499
+Max Score: 10
+Difficulty: Easy
+Rate This Challenge:
+    
+More
+Current Buffer (saved locally, editable)     
+ 
+Python 3
+###################CODE###################
+
+from itertools import combinations_with_replacement as kk
+a, b =  input().split()
+print(*[''.join(p) for p in kk(sorted(a),int(b))],sep="\n")
+
+############################################
