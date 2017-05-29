@@ -519,3 +519,29 @@ def func(nums):
 print(max(list(map(func, possible_combination))))
 
 ###############################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+By kk(krunal kalariya)
