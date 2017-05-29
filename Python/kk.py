@@ -522,4 +522,26 @@ print(max(list(map(func, possible_combination))))
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 By KK(krunal kalariya)
