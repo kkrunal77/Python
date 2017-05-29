@@ -421,4 +421,101 @@ from itertools import combinations_with_replacement as kk
 a, b =  input().split()
 print(*[''.join(p) for p in kk(sorted(a),int(b))],sep="\n")
 
-############################################
+#########################################################################################
+Input Format
+
+The input consists of three lines. The first line contains the integer , denoting the length of the list. The next line consists of  space-separated lowercase English letters, denoting the elements of the list.
+
+The third and the last line of input contains the integer , denoting the number of indices to be selected.
+
+Output Format
+
+Output a single line consisting of the probability that at least one of the  indices selected contains the letter:''.
+
+Note: The answer must be correct up to 3 decimal places.
+
+Constraints
+
+
+
+All the letters in the list are lowercase English letters.
+
+Sample Input
+
+4 
+a a c d
+2
+Sample Output
+
+0.8333
+Explanation
+
+All possible unordered tuples of length 2 comprising of indices from 1 to 4 are:('a', 'a'), ('a', 'c'), ('a', 'd'), ('a', 'c'), ('a', 'd'), ('c', 'd')
+
+
+Out of these 6 combinations, 5 of them contain either index 1 or index 2 which are the indices that contain the letter 'a'.
+
+Hence, the answer is 5/6.
+#########################################CODE#############################################
+from itertools import combinations as kk
+a = input()
+b = input().split()
+c = int(input())
+all_comb = list(kk(sorted(b), c))
+print(all_comb)
+a_comb = list(filter(lambda x: 'a' in x, all_comb))
+print(len(a_comb)/len(all_comb))
+
+#########################################################################################
+Input Format 
+The first line contains  space separated integers K and M. 
+The next K lines each contains an integer Ni followed by Ni space separated integers denoting the elements in the list.
+
+Output Format 
+Output a single integer denoting the value S(max).
+
+Constraints 
+ 
+ 
+ 
+
+Sample Input
+
+3 1000
+2 5 4
+3 7 8 9 
+5 5 7 8 9 10 
+Sample Output
+
+206
+Explanation
+
+Picking 5 from the 1st list, 9 from the 2nd list and 10 from the 3rd list gives the maximum S value equal to (5^2 + 9^2 + 10^2)%1000 = 206.
+
+
+##########################################CODE############################################
+#+++++++++++++++++MY_CODE+++++++++++++++++++++++++
+line , M = input().split()
+kk = []
+for i in range(int(line)):
+    li = list(map(int, input().split()))[1:] 
+    kk.append(list(sorted((map(lambda x: x*x , set(li)))))[::-1][0])
+
+print(sum(kk)%int(M))
+
+#+++++++++++++++USING possible_combination+++++++++++++++++++++++++++++++++++++++++++++++++
+K, M = [int(x) for x in input().split()]
+
+KK = []
+for _i_ in range(K):
+    KK.append([int(x) for x in input().split()][1:])
+    
+from itertools import product
+possible_combination = list(product(*KK))
+
+def func(nums):
+    return sum(x*x for x in nums) % M
+
+print(max(list(map(func, possible_combination))))
+
+###############################################################################################
