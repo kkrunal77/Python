@@ -520,28 +520,223 @@ print(max(list(map(func, possible_combination))))
 
 #########################################################################kk######################
 
+                          #Numpy
+
+##################################################################################################
+
+Input Format
+
+A single line of input containing space separated numbers.
+
+Output Format
+
+Print the reverse NumPy array with type float.
+
+Sample Input
+
+1 2 3 4 -8 -10
+Sample Output
+
+[-10.  -8.   4.   3.   2.   1.]
+
+##########################################CODE##################################################
+
+import numpy as np
+print(np.array(input().split(), float)[::-1])
+#################################################################################################
+
+Input Format
+
+A single line of input containing  space separated integers.
+
+Output Format
+
+Print the X NumPy array.
+
+Sample Input
+
+1 2 3 4 5 6 7 8 9
+Sample Output
+
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+ ##########################################CODE#################################################
+
+import numpy as kk
+print(kk.array(input().split(), int).reshape(3,3))
+#################################################################################################
 
 
+nput Format
+
+The first line contains the space separated values of N and M. 
+The next  lines contains the space separated elements of M columns.
+
+Output Format
+
+First, print the transpose array and then print the flatten.
+
+Sample Input
+
+2 2
+1 2
+3 4import numpy l=[] t=[] n,m,p=map(int,input().split()) for i in range(n): l.append([int(i) for i in input().split()]) for i in range(m): t.append([int(i) for i in input().split()]) print (numpy.concatenate((l, t), axis = 0))
+Sample Output
+
+[[1 3]
+ [2 4]]
+[1 2 3 4]
+
+#########################################CODE###################################################
+
+import numpy as np
+N, M = input().split()
+
+kk = np.array([input().split() for _ in range(int(N))], int)
+print(kk.transpose())
+print(kk.flatten())
 
 
+#################################################################################################
+Input Format
+
+The first line contains space separated integers , N and M. 
+The next N lines contains the space separated elements of the P columns. 
+After that, the next M lines contains the space separated elements of the P columns.
+
+Output Format
+
+Print the concatenated array of size (N+M)XP.
+
+Sample Input
+
+4 3 2
+1 2
+1 2 
+1 2
+1 2
+3 4
+3 4
+3 4
+
+Sample Output
+
+[[1 2]
+ [1 2]
+ [1 2]
+ [1 2]
+ [3 4]
+ [3 4]
+ [3 4]] 
+
+##########################################CODE###################################################
+
+import numpy
+#N,M,P=map(int, input().split())
+#print(np.array([input().strip().split() for _ in range(N+M)], int))
+l=[] 
+t=[] 
+n,m,p=map(int,input().split()) 
+for i in range(n):
+    l.append([int(i) for i in input().split()]) 
+for i in range(m):
+    t.append([int(i) for i in input().split()]) 
+print (numpy.concatenate((l, t), axis = 0))
+
+#################################################################################################
+You are given the shape of the array in the form of space-separated integers, each integer representing the size of different dimensions, your task is to print an array of the given shape and integer type using the tools numpy.zeros and numpy.ones.
+
+Input Format
+
+A single line containing the space-separated integers.
+
+Constraints
 
 
+Output Format
+
+First, print the array using the numpy.zeros tool and then print the array with the numpy.ones tool.
+
+Sample Input 0
+
+3 3 3
+Sample Output 0
+
+[[[0 0 0]
+  [0 0 0]
+  [0 0 0]]
+
+ [[0 0 0]
+  [0 0 0]
+  [0 0 0]]
+
+ [[0 0 0]
+  [0 0 0]
+  [0 0 0]]]
+[[[1 1 1]
+  [1 1 1]
+  [1 1 1]]
+
+ [[1 1 1]
+  [1 1 1]
+  [1 1 1]]
+
+ [[1 1 1]
+  [1 1 1]
+  [1 1 1]]]
 
 
+##########################################CODE###################################################
 
+import numpy as np
+num =tuple(map(int, input().split()))
 
+print(np.zeros(num,int))
+print(np.ones(num,int))
 
+#################################################################################################
+import numpy
+print numpy.eye(8, 7, k = 1)    # 8 X 7 Dimensional array with first upper diagonal 1.
 
+#Output
+[[ 0.  1.  0.  0.  0.  0.  0.]
+ [ 0.  0.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  1.  0.  0.  0.]
+ [ 0.  0.  0.  0.  1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  1.  0.]
+ [ 0.  0.  0.  0.  0.  0.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0.  0.]]
 
+print numpy.eye(8, 7, k = -2)   # 8 X 7 Dimensional array with second lower diagonal 1.
+Task
 
+Your task is to print an array of size X with its main diagonal elements as 's and 's everywhere else.
 
+Input Format
 
+A single line containing the space separated values of  and . 
+ denotes the rows. 
+ denotes the columns.
 
+Output Format
 
+Print the desired X array.
 
+Sample Input
 
+3 3
+Sample Output
 
-
+[[ 1.  0.  0.]
+ [ 0.  1.  0.]
+ [ 0.  0.  1.]]
+##########################################CODE###################################################
+import numpy as np
+a,b = map(int, input().split())
+print(np.eye(int(a),int(b),0))
 
 
 By KK(krunal kalariya)
