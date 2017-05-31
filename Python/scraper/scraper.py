@@ -11,24 +11,13 @@
 from selenium import webdriver
 import time
 import re
-# driver = webdriver.Chrome("C:\Users\krunal\Anaconda3\selenium\webdriver\firefox\chromedriver.exe")
+
 driver = webdriver.Chrome("C:/Users/krunal/Anaconda3/selenium/webdriver/firefox/chromedriver.exe")
-
-# http://selenium-python.readthedocs.io/installation.html#detailed-instructions-for-windows-users
-
-
-# In[2]:
 
 driver.get("https://www.nseindia.com/live_market/dynaContent/live_analysis/top_gainers_losers.htm?cat=G")
 
-
-# In[3]:
-
 time.sleep(5)
 htmlSource = driver.page_source
-
-
-# In[16]:
 
 import bs4
 soup = bs4.BeautifulSoup(htmlSource)
@@ -44,56 +33,18 @@ print( datasets)
 
 # In[21]:
 
+
+
+
+
 import pandas as pd
 df = pd.DataFrame(datasets)
 df.columns = headings
 df
 
-
-# In[4]:
-
-x = re.findall(r"\<th title=\"(.*)" ,htmlSource,re.I)
-l = []
-for y in x:
-#     y = re.search(r"\<th title=\"(.*)", htmlSource, re.I)
-    y= re.sub(r"\%\s", "",y)
-    y = re.search(r'(.*)\"', y, re.I)  
-    l.append(y.group(1))
-
-
-# In[5]:
-
-x1 = re.findall(r"\<td\>(.*)",htmlSource,re.I)
-y = re.sub(r"<[^>]+>", " ", str(x1))
-y = re.sub(r"(\s-\s)*(\s)", " ", str(y))
-y= re.sub(r"(\s-\s)|(\[\'\s)|\-\s\s\s|\-\s|\'\]|\'\,\s\'","",str(y))
-y = y.split()
-print(l[0:10])
-print(y[0:10])
-print(y[10:20])
-print(y[20:30])
-print(y[30:40])
-print(y[40:50])
-print(y[50:60])
-print(y[60:70])
-print(y[70:80])
-print(y[80:90])
-print(y[90:100])
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
+###########################################USING REGEX###################################################
 while True:
+
     driver.get("https://www.nseindia.com/live_market/dynaContent/live_analysis/top_gainers_losers.htm?cat=G")
     time.sleep(5)
     htmlSource = driver.page_source
@@ -110,18 +61,24 @@ while True:
     y = re.sub(r"(\s-\s)|(\[\'\s)|\-\s\s\s|\-\s|\'\]|\'\,\s\'","",str(y))
     y = y.split()
     print(l[0:10])
-    print(y[0:10])
-    print(y[10:20])
-    print(y[20:30])
-    print(y[30:40])
-    print(y[40:50])
-    print(y[50:60])
-    print(y[60:70])
-    print(y[70:80])
-    print(y[80:90])
-    print(y[90:100])
+    j=0
+    for i in range(10,100,10):
+        print(y[j:i])
+        j = i
+    	break
     time.sleep(60)
-
+#     print(l[0:10])
+#     print(y[0:10])
+#     print(y[10:20])
+#     print(y[20:30])
+#     print(y[30:40])
+#     print(y[40:50])
+#     print(y[50:60])
+#     print(y[60:70])
+#     print(y[70:80])
+#     print(y[80:90])
+#     print(y[90:100])
+#     time.sleep(60)
 
 # In[ ]:
 
