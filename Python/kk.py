@@ -1009,6 +1009,130 @@ kk2 = np.array([input().split() for _ in range(n)], int)
 print(np.dot(kk1,kk2))
 
 
+############################################################################################
+Task 
+You are given a string , containing , and/or . and 0-9 digits. 
+Your task is to re.split() all of the , and . symbols.
+
+Input Format
+
+A single line of input containing the string .
+
+Output Format
+
+Print the numbers obtained after splitting the string on separate lines.
+
+Sample Input
+
+100,000,000.000
+Sample Output
+
+100
+000
+000
+000
+########################################CODE################################################
+
+import re 
+kk = input()
+kk = re.sub(r"[a-zA-Z]","",kk)
+kk = re.split("\,|\.",kk)
+print(*[i for i in list(filter(lambda x: len(x), kk))], sep="\n")
+############################################################################################
+
+You are the manager of a supermarket. 
+You have a list of  items together with their prices that consumers bought on a particular day. 
+Your task is to print each item_name and net_price in order of its first occurrence.
+
+item_name = Name of the item. 
+net_price = Quantity of the item sold multiplied by the price of each item.
+
+Input Format
+
+The first line contains the number of items, . 
+The next  lines contains the item's name and price, separated by a space.
+
+Constraints
+
+
+Output Format
+
+Print the item_name and net_price in order of its first occurrence.
+
+Sample Input
+
+9
+BANANA FRIES 12
+POTATO CHIPS 30
+APPLE JUICE 10
+CANDY 5
+APPLE JUICE 10
+CANDY 5
+CANDY 5
+CANDY 5
+POTATO CHIPS 30
+Sample Output
+
+BANANA FRIES 12
+POTATO CHIPS 60
+APPLE JUICE 20
+CANDY 20
+
+########################################CODE################################################
+from collections import OrderedDict
+ordinary_dictionary = {}
+dic = OrderedDict()
+for i in range(int(input())):
+    line = input().split()
+    item, price = ' '.join(line[:-1]), int(line[-1])
+    if item in dic:
+        dic[item]+=price
+    else:
+        dic[item]=price
+[print(i,j) for i, j in dic.items()]
+
+############################################################################################
+"""Word Order"""
+Input Format
+
+The first line contains the integer, . 
+The next  lines each contain a word.
+
+Output Format
+
+Output  lines. 
+On the first line, output the number of distinct words from the input. 
+On the second line, output the number of occurrences for each distinct word according to their appearance in the input.
+
+Sample Input
+
+4
+bcdef
+abcdefg
+bcde
+bcdef
+Sample Output
+
+3
+2 1 1
+Explanation
+
+There are  distinct words. Here, "bcdef" appears twice in the input at the first and last positions. The other words appear once each. The order of the first appearances are "bcdef", "abcdefg" and "bcde" which corresponds to the output.
+
+
+##################################################################################################
+from collections import OrderedDict
+l = OrderedDict()
+for i in range(int(input())):
+    key = input()
+    val = 1
+    if key in l:  
+        l[key]+=val
+    else:
+        l[key]=val
+print(len(l))
+print(*[j for i,j in l.items()], sep=" ")
+
 
 
 
